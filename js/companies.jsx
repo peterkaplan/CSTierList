@@ -36,21 +36,12 @@ class Companies extends React.Component {
   render() {
     // Render post info
     return (
-      <div>
-        <div className="post-header">
-          <div className="profile">
-            <a href={`${getPrefix()}${this.state.owner_show_url}`}>
-              <img src={`${getPrefix()}${this.state.owner_img_url}`} alt="profile" height="50" width="50" /></a>
-          </div>
-          <div className="username"><a href={`${getPrefix()}${this.state.owner_show_url}`}>
-            <p><b>{this.state.owner}</b></p></a>
-          </div>
-          <div className="time"><a href={`${getPrefix()}${this.state.post_show_url}`}>
-            <p><b>{this.state.timestamp}</b></p></a>
-          </div>
-        </div>
-        <div><img className="upload" src={`${getPrefix()}${this.state.img_url}`} alt="upload" /></div>
-      </div>
+      <p>{this.state.name}</p>
+      <p>{this.state.size}</p>
+      <p>{this.state.logo}</p>
+      <p>{this.state.link}</p>
+      <p>{this.state.description}</p>
+
     );
   }
 }
@@ -59,4 +50,4 @@ Posts.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-export default Posts;
+export default Companies;

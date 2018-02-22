@@ -45,26 +45,6 @@ class Home extends React.Component {
       .catch(error => console.log(error));// eslint-disable-line no-console  
   }
 
-  next() {
-    fetch(this.state.next, { credentials: 'same-origin' })
-      .then((response) => {
-        if (!response.ok) throw Error(response.statusText);
-        return response.json();
-      })
-      .then((data) => {
-        this.setState({
-          next: data.next,
-          results: this.state.results.concat(data.results),
-        });
-        window.history.replaceState({
-          next: this.state.next,
-          results: this.state.results,
-        }, 'title',
-        );
-      })
-      .catch(error => console.log(error));// eslint-disable-line no-console
-  }
-
   render() {
     // Render feed
     if (this.state.results[0].url == null) return <div />;
@@ -82,14 +62,7 @@ class Home extends React.Component {
     });
 
     return (
-      <InfiniteScroll
-        scrollThreshold={0.8}
-        next={this.next}
-        hasMore={this.state.next !== ''}
-        loader={<h4>Loading...</h4>}
-      >
         {posts}
-      </InfiniteScroll>
     );
   }
 }
