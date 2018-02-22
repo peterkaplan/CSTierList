@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views as tier_views
+from rest_framework import urls
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('vote/', tier_views.vote),
+    path('dump_db/', tier_views.dump_db)
 ]
