@@ -77,7 +77,11 @@ WSGI_APPLICATION = 'tierlist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
+        'NAME': 'tier_db',
+        'USER': 'peter',
+        'PASSWORD': 'peter',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
