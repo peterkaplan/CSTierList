@@ -1,0 +1,1 @@
+votes & if user voted on it
