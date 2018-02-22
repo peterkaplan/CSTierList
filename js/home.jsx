@@ -24,25 +24,11 @@ class Home extends React.Component {
         return response.json();
       })
       .then((data) => {
-        if (performance.navigation.type !== 2) {
-          this.setState({
-            next: data.next,
-            results: data.results,
-          });
-
-          window.history.pushState({
-            next: this.state.next,
-            results: this.state.results,
-          }, 'title',
-          );
-        } else {
-          this.setState({
-            next: window.history.state.next,
-            results: window.history.state.results,
-          });
-        }
+        this.setState({
+          results: data.results,
+        });
       })
-      .catch(error => console.log(error));// eslint-disable-line no-console  
+      .catch(error => console.log(error));// eslint-disable-line no-console
   }
 
   render() {
@@ -54,7 +40,7 @@ class Home extends React.Component {
       const commentsurl = `${post.url}comments/`;
       return (<div key={post.postid}>
         <div className="post">
-          <Posts url={posturl} />
+          <Companies url={companiesurl} />
           <Likes url={likesurl} />
           <Comments url={commentsurl} />
         </div>
