@@ -22,4 +22,3 @@ class Vote(models.Model):
 	pid = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name="profile id")
 	cid = models.ForeignKey(Company, on_delete=models.CASCADE, verbose_name="profile id")
 	date = models.DateTimeField(auto_now_add=True)
-
