@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from tierlist.utils.utils import get_client_ip
-from tierlist.models import Company, Vote, Profile
+from tierlist.models import *
 
 import json
 
@@ -12,8 +12,13 @@ def dump_db(request):
         Called from main view. Returns a list of company objects.
     """
     # Get and search for client ip in database.
-    client_ip = get_client_ip(request)          # TODO: Check type coersion.
+    client_ip = get_client_ip(request)
     user_profile = Profile.objects.filter(ip = client_ip)
+	
+	# Don't have an account. Will likely be phased out once authentication is implemented.
+	if not user_profile:
+		return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
     # Build and serialize company object.
     company_json_list = []
