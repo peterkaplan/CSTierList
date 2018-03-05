@@ -22,5 +22,5 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('vote/', tier_views.vote),
-    path('dump_db/', tier_views.dump_db)
+    path('current_state/', tier_views.current_state)
 ]

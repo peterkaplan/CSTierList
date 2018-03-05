@@ -7,7 +7,7 @@ from tierlist.models import *
 import json
 
 @api_view(['GET'])
-def dump_db(request):
+def current_state(request):
     """
         Called from main view. Returns a list of company objects.
     """
